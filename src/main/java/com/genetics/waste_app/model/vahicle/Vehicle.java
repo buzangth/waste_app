@@ -1,4 +1,4 @@
-package com.genetics.waste_app.vahicle;
+package com.genetics.waste_app.model.vahicle;
 
 public class Vehicle {
     private String id,VehicleName,vehicleReg;

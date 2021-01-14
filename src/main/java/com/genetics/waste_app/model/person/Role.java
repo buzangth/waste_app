@@ -1,4 +1,4 @@
-package com.genetics.waste_app.person;
+package com.genetics.waste_app.model.person;
 
 public class Role {
 
