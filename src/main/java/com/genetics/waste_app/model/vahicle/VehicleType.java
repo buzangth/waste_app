@@ -2,11 +2,11 @@ package com.genetics.waste_app.model.vahicle;
 
 public class VehicleType {
 
-    private String id,vihicle;
+    private String id,vehicle;
 
-    public VehicleType(String id, String vihicle) {
+    public VehicleType(String id, String vehicle) {
         this.id = id;
-        this.vihicle = vihicle;
+        this.vehicle = vehicle;
     }
 
     public String getId() {
@@ -17,11 +17,11 @@ public class VehicleType {
         this.id = id;
     }
 
-    public String getVihicle() {
-        return vihicle;
+    public String getVehicle() {
+        return vehicle;
     }
 
-    public void setVihicle(String vihicle) {
-        this.vihicle = vihicle;
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
     }
 }
