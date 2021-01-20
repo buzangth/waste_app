@@ -1,39 +1,23 @@
 package com.genetics.waste_app.model.vahicle;
 
-public class Vehicle {
-    private String id,VehicleName,vehicleReg;
+import com.genetics.waste_app.model.Common;
+import com.genetics.waste_app.model.Location;
+
+public class Vehicle extends Common {
+
+    public enum VehicleType{TRUCK,LORY};
+    private String registration;
 
     private VehicleType vehicleType;
+    private Location location;
 
-    public Vehicle(String id, String vehicleName, String vehicleReg, VehicleType vehicleType) {
-        this.id = id;
-        VehicleName = vehicleName;
-        this.vehicleReg = vehicleReg;
-        this.vehicleType = vehicleType;
+
+    public String getRegistration() {
+        return registration;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getVehicleName() {
-        return VehicleName;
-    }
-
-    public void setVehicleName(String vehicleName) {
-        VehicleName = vehicleName;
-    }
-
-    public String getVehicleReg() {
-        return vehicleReg;
-    }
-
-    public void setVehicleReg(String vehicleReg) {
-        this.vehicleReg = vehicleReg;
+    public void setRegistration(String registration) {
+        this.registration = registration;
     }
 
     public VehicleType getVehicleType() {
@@ -42,5 +26,13 @@ public class Vehicle {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

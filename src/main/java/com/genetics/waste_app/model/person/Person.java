@@ -1,13 +1,20 @@
 package com.genetics.waste_app.model.person;
 
-public class Person {
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+
+public class Person{
+    public enum Role{DRIVER,PICKER};
+
+
     private String id,firstName,lastName;
     private Role role;
 
-    public Person(String id, String firstName, String lastName, Role role) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -35,11 +42,5 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public Role getRole() {
-        return role;
-    }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
 }
