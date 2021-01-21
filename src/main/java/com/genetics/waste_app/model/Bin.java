@@ -5,15 +5,10 @@ public class Bin {
    private String id;
    private Location location;
 
-//    public Bin(String id, Location location) {
-//        this.id = id;
-//        this.location = location;
-//    }
 
-    public String getId() {
+   public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }

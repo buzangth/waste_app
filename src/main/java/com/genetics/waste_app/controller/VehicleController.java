@@ -1,9 +1,9 @@
 package com.genetics.waste_app.controller;
 
 
-import com.genetics.waste_app.model.Bin;
-import com.genetics.waste_app.model.person.Person;
 import com.genetics.waste_app.model.vahicle.Vehicle;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +11,22 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/api/v1/vehicle")
 public class VehicleController {
 
     List<Vehicle> addVehicle = new ArrayList<>();
+
+//    public List<String> findUsingStream(String search, List<Vehicle> list) {
+//        List<String> matchingElements = list.stream()
+//                .filter(vehicle -> vehicle.trim().contains(search))
+//                .collect(Collectors.toList());
+//
+//        return matchingElements;
+//    }
 
     @PostMapping(path = "/createVehicle")
     public ResponseEntity<?> newVehicle(@Valid @RequestBody Vehicle vehicle){
@@ -40,7 +50,7 @@ public class VehicleController {
 
     }
 
-    @DeleteMapping(value="/deleteVehicle.ById/{id}")
+    @DeleteMapping(value="/deleteVehicleById/{id}")
     public void deleteById(@PathVariable("id") String id) throws Exception{
 
         addVehicle.removeIf(vehicle -> id.equals(vehicle.getId()));
@@ -50,4 +60,20 @@ public class VehicleController {
     public  Iterable<Vehicle> allVehicle() throws Exception {
         return addVehicle;
     }
+
+//    @GetMapping(value = "/{page}/{perPage}/{sortOrder}/{sortField}")
+//    public List<Vehicle> search(@RequestParam(required = false, value = "keyword") String keyword,
+//                               @PathVariable("page") int page,
+//                               @PathVariable("perPage") int perPage,
+//                               @PathVariable("sortOrder") Sort.Direction sort,
+//                               @PathVariable("sortField") String sortField) throws Exception {
+//        //page = page - 1;
+//       // PageRequest pageRequest = new PageRequest(page, perPage, sort, sortField);
+//        if (keyword == null) {
+//            keyword = "";
+//        }
+//
+//
+////        return findUsingStream(keyword,addVehicle);
+//    }
 }

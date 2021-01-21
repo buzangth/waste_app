@@ -5,7 +5,7 @@ import com.genetics.waste_app.model.Location;
 
 public class Vehicle extends Common {
 
-    public enum VehicleType{TRUCK,LORY};
+    public enum VehicleType{TRUCK,LORY}
     private String registration;
 
     private VehicleType vehicleType;

@@ -30,7 +30,7 @@ public class BinController {
         return new ResponseEntity<Bin>(bin1, HttpStatus.OK);
     }
 
-    @GetMapping(value="/getPersonById/{id}")
+    @GetMapping(value="/getBinById/{id}")
     public Bin getById(@PathVariable("id") String id){
 
         return addBin.stream().filter(bin -> id.equals(bin.getId()))
@@ -39,13 +39,13 @@ public class BinController {
 
     }
 
-    @DeleteMapping(value="/deleteById/{id}")
+    @DeleteMapping(value="/deleteBinById/{id}")
     public void deleteById(@PathVariable("id") String id) throws Exception{
 
         addBin.removeIf(bin -> id.equals(bin.getId()));
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/getAllBin")
     public  Iterable<Bin> allPerson() throws Exception {
         return addBin;
     }

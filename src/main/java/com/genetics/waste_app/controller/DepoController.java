@@ -37,7 +37,7 @@ public class DepoController {
 
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/getAllDepo")
     public  Iterable<Depo> allDepo() throws Exception {
         return addDepo;
     }
