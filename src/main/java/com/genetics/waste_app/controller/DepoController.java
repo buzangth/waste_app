@@ -2,6 +2,10 @@ package com.genetics.waste_app.controller;
 
 import com.genetics.waste_app.model.Depo;
 
+import com.genetics.waste_app.repository.DeposRepository;
+import com.genetics.waste_app.repository.PersonsRepository;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +18,11 @@ import java.util.List;
 @RequestMapping("/api/v1/depo")
 public class DepoController {
 
-    List<Depo> addDepo = new ArrayList<>();
+//    List<Depo> addDepo = new ArrayList<>();
+
+    @Autowired
+    @Getter
+    private DeposRepository deposRepository;
 
     @PostMapping(path = "/createDepo")
     public ResponseEntity<?> newUser(@Valid @RequestBody Depo depo){
@@ -23,28 +31,28 @@ public class DepoController {
         depo1.setName(depo.getName());
         depo1.setLocation(depo.getLocation());
 
-        addDepo.add(depo1);
+        deposRepository.save(depo1);
 
         return new ResponseEntity<Depo>(depo1, HttpStatus.OK);
     }
 
-    @GetMapping(value="/getDepoById/{id}")
-    public Depo getById(@PathVariable("id") String id){
-
-        return addDepo.stream().filter(depo -> id.equals(depo.getId()))
-                .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Depo " + id + "doesn't exist"));
-
-    }
+//    @GetMapping(value="/getDepoById/{id}")
+//    public Depo getById(@PathVariable("id") String id){
+//
+//        return addDepo.stream().filter(depo -> id.equals(depo.getId()))
+//                .findFirst()
+//                .orElseThrow(() -> new IllegalStateException("Depo " + id + "doesn't exist"));
+//
+//    }
 
     @GetMapping(value = "/getAllDepo")
     public  Iterable<Depo> allDepo() throws Exception {
-        return addDepo;
+        return deposRepository.findAll();
     }
-    @DeleteMapping(value="/deleteById/{id}")
+    @DeleteMapping(value="/deleteByDepoId/{id}")
     public void deleteById(@PathVariable("id") String id) throws Exception{
 
-        addDepo.removeIf(depo -> id.equals(depo.getId()));
+       deposRepository.deleteById(id);
     }
 
 //    @GetMapping(value = "/{page}/{perPage}/{sortOrder}/{sortField}")

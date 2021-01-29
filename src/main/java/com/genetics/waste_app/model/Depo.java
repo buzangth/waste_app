@@ -1,5 +1,8 @@
 package com.genetics.waste_app.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("Depo")
 public class Depo extends Common {
 
 

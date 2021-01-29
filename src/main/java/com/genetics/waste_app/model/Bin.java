@@ -1,5 +1,8 @@
 package com.genetics.waste_app.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("bin")
 public class Bin {
 
    private String id;

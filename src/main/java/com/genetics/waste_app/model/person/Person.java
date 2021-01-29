@@ -1,8 +1,8 @@
 package com.genetics.waste_app.model.person;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Document("person")
 public class Person{
     public enum Role{DRIVER,PICKER};
 
